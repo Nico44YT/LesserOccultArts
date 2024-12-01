@@ -55,7 +55,7 @@ public class DemonEntity extends TameableEntity implements IAnimatable, Angerabl
     public static DefaultAttributeContainer.Builder createDefaultAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.28)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 84.0);
     }
@@ -71,7 +71,7 @@ public class DemonEntity extends TameableEntity implements IAnimatable, Angerabl
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 0.5, false));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 0.28, false));
         this.targetSelector.add(0, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
     }
 
@@ -123,7 +123,7 @@ public class DemonEntity extends TameableEntity implements IAnimatable, Angerabl
         if(this.handSwinging) {
             animation = switch(world.getRandom().nextBetween(0, 1)) {
                 case 0 -> "animation.demon.claw";
-                case 1 -> "animation.demon.claw2";
+                case 1 -> "animation.demon.shorter_claws";
                 default -> throw new IllegalStateException("How the fuck does this happen?! Contact mod developer of lesser occult arts and say that the demon animation is broken!");
             };
             this.handSwinging = false;
