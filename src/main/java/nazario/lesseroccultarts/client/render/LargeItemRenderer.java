@@ -1,4 +1,4 @@
-package nazario.lesseroccultarts.client;
+package nazario.lesseroccultarts.client.render;
 
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;

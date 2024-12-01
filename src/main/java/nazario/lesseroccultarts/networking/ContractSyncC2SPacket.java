@@ -2,16 +2,14 @@ package nazario.lesseroccultarts.networking;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.listener.ServerPlayPacketListener;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -65,7 +63,7 @@ public class ContractSyncC2SPacket {
             itemStack.setSubNbt("title", NbtString.of(packet.getTitle().get()));
 
             NbtCompound nbtCompound = itemStack.getNbt();
-            ItemStack newStack = new ItemStack(ItemRegistry.FINISHED_CONTRACT);
+            ItemStack newStack = new ItemStack(LoaItems.FINISHED_CONTRACT);
             newStack.setNbt(nbtCompound);
 
             player.getInventory().setStack(packet.getSlot(), newStack);

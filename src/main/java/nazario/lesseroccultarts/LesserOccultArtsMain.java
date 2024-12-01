@@ -4,7 +4,6 @@ import nazario.lesseroccultarts.common.world.feature.LoaConfiguredFeatures;
 import nazario.lesseroccultarts.common.world.gen.LoaOreGeneration;
 import nazario.lesseroccultarts.registry.*;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -17,12 +16,13 @@ public class LesserOccultArtsMain implements ModInitializer {
         LoaConfiguredFeatures.registerConfiguredFeatures();
         LoaOreGeneration.register();
 
-        PacketRegistry.registerC2SPackets();
+        LoaPackets.registerC2SPackets();
+        LoaParticles.register();
 
-        EntityRegistry.register();
-        EnchantmentRegistry.register();
-        BlockRegistry.register();
-        ItemRegistry.register();
+        LoaEntities.register();
+        LoadEnchantments.register();
+        LoaBlocks.register();
+        LoaItems.register();
         GeckoLib.initialize();
     }
 

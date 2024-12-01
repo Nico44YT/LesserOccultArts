@@ -1,7 +1,7 @@
 package nazario.lesseroccultarts.mixin.client;
 
 import nazario.lesseroccultarts.LesserOccultArtsMain;
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
@@ -30,9 +30,9 @@ public abstract class ItemRendererMixin
     @ModifyVariable(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At("HEAD"), argsOnly = true)
     public BakedModel onRenderItem(BakedModel value, ItemStack stack, ModelTransformation.Mode mode)
     {
-        if(stack.isOf(ItemRegistry.DAMNED_GREATSWORD) && !mode.equals(ModelTransformation.Mode.GUI))
+        if(stack.isOf(LoaItems.DAMNED_GREATSWORD) && !mode.equals(ModelTransformation.Mode.GUI))
             return models.getModelManager().getModel(DAMNED_GREATSWORD_HANDHELD);
-        if(stack.isOf(ItemRegistry.DEEEPSLATE_GREATSWORD) && !mode.equals(ModelTransformation.Mode.GUI))
+        if(stack.isOf(LoaItems.DEEEPSLATE_GREATSWORD) && !mode.equals(ModelTransformation.Mode.GUI))
             return models.getModelManager().getModel(DEEPSLATE_GREATSWORD_HANDHELD);
         return value;
     }

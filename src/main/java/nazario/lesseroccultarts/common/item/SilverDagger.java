@@ -1,6 +1,6 @@
 package nazario.lesseroccultarts.common.item;
 
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -40,7 +40,7 @@ public class SilverDagger extends SwordItem {
         ItemStack mainHandStack = user.getStackInHand(Hand.MAIN_HAND);
         ItemStack offHandStack = user.getStackInHand(Hand.OFF_HAND);
 
-        if (offHandStack.isOf(ItemRegistry.SOUL_TAG)) {
+        if (offHandStack.isOf(LoaItems.SOUL_TAG)) {
             NbtCompound offHandNbt = offHandStack.getNbt();
 
             if (offHandNbt != null && offHandNbt.getBoolean("linked")) {

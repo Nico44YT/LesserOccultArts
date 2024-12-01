@@ -1,10 +1,9 @@
 package nazario.lesseroccultarts.common.item;
 
-import nazario.lesseroccultarts.registry.BlockRegistry;
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaBlocks;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -15,7 +14,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class DeepslateGreatswordItem extends SwordItem {
@@ -29,7 +27,7 @@ public class DeepslateGreatswordItem extends SwordItem {
         PlayerEntity player = context.getPlayer();
         if (!world.isClient) {
             BlockState clickedState = world.getBlockState(context.getBlockPos());
-            if (clickedState.isOf(BlockRegistry.MALICE_INK_CAULDRON)) {
+            if (clickedState.isOf(LoaBlocks.MALICE_INK_CAULDRON)) {
                 BlockState inkCauldron = Blocks.CAULDRON.getDefaultState();
                 world.setBlockState(context.getBlockPos(), inkCauldron);
 
@@ -37,7 +35,7 @@ public class DeepslateGreatswordItem extends SwordItem {
 
                 assert player != null;
 
-                player.setStackInHand(Hand.MAIN_HAND, new ItemStack(ItemRegistry.DAMNED_GREATSWORD));
+                player.setStackInHand(Hand.MAIN_HAND, new ItemStack(LoaItems.DAMNED_GREATSWORD));
                 return ActionResult.SUCCESS;
             }
         }

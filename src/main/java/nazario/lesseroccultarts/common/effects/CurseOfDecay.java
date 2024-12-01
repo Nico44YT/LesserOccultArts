@@ -1,6 +1,6 @@
 package nazario.lesseroccultarts.common.effects;
 
-import nazario.lesseroccultarts.registry.DamageRegistry;
+import nazario.lesseroccultarts.registry.LoaDamageSources;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
@@ -13,7 +13,7 @@ public class CurseOfDecay extends StatusEffect {
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        entity.damage(DamageRegistry.DECAYED, 999999);
+        entity.damage(LoaDamageSources.DECAYED, 999999);
         // ban logic has to be added
         super.onRemoved(entity, attributes, amplifier);
     }

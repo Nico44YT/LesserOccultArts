@@ -1,6 +1,6 @@
 package nazario.lesseroccultarts.mixin.client;
 
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
@@ -28,14 +28,14 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
     )
     private static void amarite$swordPoses(@NotNull AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
         ItemStack main = player.getMainHandStack();
-        if (main.isOf(ItemRegistry.DAMNED_GREATSWORD)) {
+        if (main.isOf(LoaItems.DAMNED_GREATSWORD)) {
             if (hand != Hand.MAIN_HAND) {
                 cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
             } else {
                 cir.setReturnValue(BipedEntityModel.ArmPose.BLOCK);
             }
         }
-        if (main.isOf(ItemRegistry.DEEEPSLATE_GREATSWORD)) {
+        if (main.isOf(LoaItems.DEEEPSLATE_GREATSWORD)) {
             if (hand != Hand.MAIN_HAND) {
                 cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
             } else {

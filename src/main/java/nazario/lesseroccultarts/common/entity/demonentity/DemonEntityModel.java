@@ -1,13 +1,12 @@
-package nazario.lesseroccultarts.client;
+package nazario.lesseroccultarts.common.entity.demonentity;
 
 import nazario.lesseroccultarts.LesserOccultArtsMain;
-import nazario.lesseroccultarts.common.entity.DemonEntity;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class DemonEntityModel extends AnimatedGeoModel<DemonEntity> {
-    private static final Identifier MODEL = LesserOccultArtsMain.id("geo/entity/2demon.geo.json");
-    private static final Identifier ANIMATION = LesserOccultArtsMain.id("animations/entity/2demon.animation.json");
+    private static final Identifier MODEL = LesserOccultArtsMain.id("geo/entity/demon.geo.json");
+    private static final Identifier ANIMATION = LesserOccultArtsMain.id("animations/entity/demon.animation.json");
 
     @Override
     public Identifier getModelResource(DemonEntity demonEntity) {
@@ -16,7 +15,7 @@ public class DemonEntityModel extends AnimatedGeoModel<DemonEntity> {
 
     @Override
     public Identifier getTextureResource(DemonEntity demonEntity) {
-        return LesserOccultArtsMain.id("textures/entity/2demon.png");
+        return LesserOccultArtsMain.id("textures/entity/demon.png");
     }
 
     @Override

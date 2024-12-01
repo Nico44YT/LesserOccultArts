@@ -1,6 +1,6 @@
 package nazario.lesseroccultarts.common.item;
 
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -34,7 +34,7 @@ public class LoaToolMaterials {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.ofStacks(new ItemStack(ItemRegistry.SILVER_INGOT));
+            return Ingredient.ofStacks(new ItemStack(LoaItems.SILVER_INGOT));
         }
     };
 }

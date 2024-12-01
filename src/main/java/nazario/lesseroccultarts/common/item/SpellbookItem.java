@@ -1,7 +1,5 @@
 package nazario.lesseroccultarts.common.item;
 
-import net.minecraft.block.entity.BeaconBlockEntity;
-import net.minecraft.entity.mob.EvokerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ArrowItem;

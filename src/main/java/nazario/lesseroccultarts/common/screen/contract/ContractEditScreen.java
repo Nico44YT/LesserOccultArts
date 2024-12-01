@@ -5,7 +5,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import nazario.lesseroccultarts.networking.ContractSyncC2SPacket;
-import nazario.lesseroccultarts.registry.PacketRegistry;
+import nazario.lesseroccultarts.registry.LoaPackets;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -17,7 +17,6 @@ import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.BookScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import nazario.lesseroccultarts.common.screen.contract.ContractPageWidget;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.SelectionManager;
@@ -190,7 +189,7 @@ public class ContractEditScreen extends Screen {
         int i = this.hand == Hand.MAIN_HAND ? this.player.getInventory().selectedSlot : 40;
 
         ContractSyncC2SPacket packet = new ContractSyncC2SPacket(i, this.pages, signBook ? Optional.of(this.title.trim()) : Optional.empty());
-        ClientPlayNetworking.send(PacketRegistry.CONTRACT_SYNC_ID, packet.write(PacketByteBufs.create()));
+        ClientPlayNetworking.send(LoaPackets.CONTRACT_SYNC_ID, packet.write(PacketByteBufs.create()));
     }
 
     private void writeNbtData(boolean signBook) {

@@ -30,9 +30,9 @@
   "screen.lesseroccultarts.contract.finalize_warn": "%s",
   "screen.lesseroccultarts.contract.button_sign": "Sign",
 
-  "death.attack.repurposed.player": "%1$s has their flesh repurposed",
-  "death.attack.damned.player": "%1$s got dragged to the depths of hell",
-  "death.attack.decayed.player": "%1$s had decayed",
+  "death.attack.lesseroccultarts.repurposed.player": "%1$s has their flesh repurposed",
+  "death.attack.lesseroccultarts.damned.player": "%1$s got dragged to the depths of hell",
+  "death.attack.lesseroccultarts.decayed.player": "%1$s had decayed",
 
   "entity.lesseroccultarts.demon": "Demon"
 }

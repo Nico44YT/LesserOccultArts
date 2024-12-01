@@ -1,12 +1,11 @@
 package nazario.lesseroccultarts.mixin;
 
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,13 +25,13 @@ public abstract class PlayerDeathMixin {
         if (player.getWorld().getGameRules().getBoolean(GameRules.KEEP_INVENTORY)) return;
 
         ItemStack stack = null;
-        if (player.getMainHandStack().getItem().equals(ItemRegistry.TOTEM_OF_RETRIEVAL))
+        if (player.getMainHandStack().getItem().equals(LoaItems.TOTEM_OF_RETRIEVAL))
             stack = player.getMainHandStack();
-        else if (player.getOffHandStack().getItem().equals(ItemRegistry.TOTEM_OF_RETRIEVAL))
+        else if (player.getOffHandStack().getItem().equals(LoaItems.TOTEM_OF_RETRIEVAL))
             stack = player.getOffHandStack();
 
         if (stack == null) return;
-        if (!stack.getItem().equals(ItemRegistry.TOTEM_OF_RETRIEVAL)) return;
+        if (!stack.getItem().equals(LoaItems.TOTEM_OF_RETRIEVAL)) return;
 
         toKeep = new HashMap<>();
         for (int i = 0; i < player.getInventory().size(); i++) {

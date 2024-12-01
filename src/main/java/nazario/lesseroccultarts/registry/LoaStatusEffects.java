@@ -1,4 +1,4 @@
 package nazario.lesseroccultarts.registry;
 
-public class StatusEffectRegistry {
+public class LoaStatusEffects {
 }

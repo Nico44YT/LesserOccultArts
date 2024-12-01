@@ -1,8 +1,8 @@
 package nazario.lesseroccultarts.common.item;
 
-import nazario.lesseroccultarts.common.entity.DemonEntity;
-import nazario.lesseroccultarts.registry.DamageRegistry;
-import nazario.lesseroccultarts.registry.EnchantmentRegistry;
+import nazario.lesseroccultarts.common.entity.demonentity.DemonEntity;
+import nazario.lesseroccultarts.registry.LoaDamageSources;
+import nazario.lesseroccultarts.registry.LoadEnchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,12 +22,12 @@ public class DamnedGreatswordItem extends SwordItem implements IOverrideMeleeDam
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = target.getWorld();
         if (target.isDead()) {
-            if (stack.getEnchantments().contains(EnchantmentRegistry.REPURPOSING)) {
+            if (stack.getEnchantments().contains(LoadEnchantments.REPURPOSING)) {
                 if (attacker instanceof PlayerEntity player) {
-                    DemonEntity.spawnAsFren(world, target.getPos(), player);
+                    DemonEntity.spawnAsAlly(world, target.getPos(), player);
                 }
             }
-            if (stack.getEnchantments().contains(EnchantmentRegistry.ANNIHILATING)) {
+            if (stack.getEnchantments().contains(LoadEnchantments.ANNIHILATING)) {
                 target.sendMessage(Text.literal("You'd be banned when this works :)"));
                 // ban logic needs to be added
             }
@@ -37,10 +37,10 @@ public class DamnedGreatswordItem extends SwordItem implements IOverrideMeleeDam
 
     @Override
     public DamageSource getDamageSource(World world, LivingEntity attacker) {
-        if (attacker.getMainHandStack().getEnchantments().contains(EnchantmentRegistry.ANNIHILATING)) {
-            return DamageRegistry.DAMNED;
-        } else if (attacker.getMainHandStack().getEnchantments().contains(EnchantmentRegistry.REPURPOSING)) {
-            return DamageRegistry.REPURPOSED;
+        if (attacker.getMainHandStack().getEnchantments().contains(LoadEnchantments.ANNIHILATING)) {
+            return LoaDamageSources.DAMNED;
+        } else if (attacker.getMainHandStack().getEnchantments().contains(LoadEnchantments.REPURPOSING)) {
+            return LoaDamageSources.REPURPOSED;
         }
         return DamageSource.GENERIC;
     }

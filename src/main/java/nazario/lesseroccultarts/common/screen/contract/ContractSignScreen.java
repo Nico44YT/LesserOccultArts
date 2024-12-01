@@ -3,13 +3,12 @@ package nazario.lesseroccultarts.common.screen.contract;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import nazario.lesseroccultarts.networking.ContractSignC2SPacket;
-import nazario.lesseroccultarts.registry.PacketRegistry;
+import nazario.lesseroccultarts.registry.LoaPackets;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.BookScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import nazario.lesseroccultarts.common.screen.contract.ContractPageWidget;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
@@ -60,7 +59,7 @@ public class ContractSignScreen extends Screen {
         this.signButton = this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, 196, 98, 20, Text.translatable("screen.lesseroccultarts.contract.button_sign"), button -> {
             int i = this.hand == Hand.MAIN_HAND ? this.player.getInventory().selectedSlot : 40;
             ContractSignC2SPacket packet = new ContractSignC2SPacket(i);
-            ClientPlayNetworking.send(PacketRegistry.CONTRACT_SIGN_ID, packet.write(PacketByteBufs.create()));
+            ClientPlayNetworking.send(LoaPackets.CONTRACT_SIGN_ID, packet.write(PacketByteBufs.create()));
             this.client.setScreen(null);
         }));
         this.doneButton = this.addDrawableChild(new ButtonWidget(this.width / 2 + 2, 196, 98, 20, ScreenTexts.DONE, button -> {

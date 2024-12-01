@@ -1,6 +1,6 @@
 package nazario.lesseroccultarts.mixin.client;
 
-import nazario.lesseroccultarts.registry.ItemRegistry;
+import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.AnimalModel;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -37,7 +37,7 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
             at = {@At("TAIL")}
     )
     protected void amarite$twoHanding(T entity, float animationProgress, CallbackInfo ci) {
-        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(ItemRegistry.DAMNED_GREATSWORD)) {
+        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(LoaItems.DAMNED_GREATSWORD)) {
             Arm arm = this.getPreferredArm(entity).getOpposite();
             ModelPart modelPart = this.getArm(arm);
             double f = 1.0 - Math.pow((double)(1.0F - this.handSwingProgress), 3.0);
@@ -46,7 +46,7 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
             modelPart.yaw += this.body.yaw * 2.0F;
             modelPart.roll += MathHelper.sin(this.handSwingProgress * 3.1415927F) * -0.4F;
         }
-        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(ItemRegistry.DEEEPSLATE_GREATSWORD)) {
+        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(LoaItems.DEEEPSLATE_GREATSWORD)) {
             Arm arm = this.getPreferredArm(entity).getOpposite();
             ModelPart modelPart = this.getArm(arm);
             double f = 1.0 - Math.pow((double)(1.0F - this.handSwingProgress), 3.0);
