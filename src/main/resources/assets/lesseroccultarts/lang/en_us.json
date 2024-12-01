@@ -1,0 +1,38 @@
+{
+  "itemGroup.lesseroccultarts.loa_tab": "Lesser Occult Arts",
+
+  "item.lesseroccultarts.raw_silver": "Raw Silver",
+  "item.lesseroccultarts.silver_ingot": "Silver Ingot",
+  "item.lesseroccultarts.silver_nugget": "Silver Nugget",
+  "item.lesseroccultarts.soul_tag": "Soul Tag",
+  "item.lesseroccultarts.soul_tag.desc": "Linked to %s",
+  "item.lesseroccultarts.contract": "Contract Draft",
+  "item.lesseroccultarts.totem_of_retrieval": "Totem of Retrieval",
+  "item.lesseroccultarts.clump_of_malice": "Clump Of Malice",
+  "item.lesseroccultarts.deepslate_greatsword": "Deepslate Greatsword",
+  "item.lesseroccultarts.damned_greatsword": "§4Greatsword Of The Damned",
+
+  "block.lesseroccultarts.silver_pressure_plate": "Silver Pressure Plate",
+  "block.lesseroccultarts.silver_block": "Silver Block",
+  "block.lesseroccultarts.silver_ore": "Silver Ore",
+
+  "enchantment.lesseroccultarts.curse_banishment": "Curse of Banishment",
+  "enchantment.lesseroccultarts.curse_banishment.desc": "§c§kThe cake is a lie",
+  "enchantment.lesseroccultarts.annihilating": "Annihilating",
+  "enchantment.lesseroccultarts.repurposing": "Repurposing",
+
+  "effect.lesseroccultarts.curse_of_decay": "Curse Of Decay",
+
+  "screen.lesseroccultarts.contract.edit": "Finalize Contract",
+  "screen.lesseroccultarts.contract.author": "Author: %s",
+  "screen.lesseroccultarts.contract.signer": "Signer: %s",
+  "screen.lesseroccultarts.contract.button_finish": "Finish",
+  "screen.lesseroccultarts.contract.finalize_warn": "%s",
+  "screen.lesseroccultarts.contract.button_sign": "Sign",
+
+  "death.attack.repurposed.player": "%1$s has their flesh repurposed",
+  "death.attack.damned.player": "%1$s got dragged to the depths of hell",
+  "death.attack.decayed.player": "%1$s had decayed",
+
+  "entity.lesseroccultarts.demon": "Demon"
+}

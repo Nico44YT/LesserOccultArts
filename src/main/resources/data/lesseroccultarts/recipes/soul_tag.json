@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#N#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "lesseroccultarts:silver_ingot"
+    },
+    "N": {
+      "item": "minecraft:name_tag"
+    }
+  },
+  "result": {
+    "item": "lesseroccultarts:soul_tag",
+    "count": 1
+  }
+}

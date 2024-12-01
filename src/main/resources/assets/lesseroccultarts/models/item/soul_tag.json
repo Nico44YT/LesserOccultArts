@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lesseroccultarts:item/soul_tag_unlinked"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "linked": 1
+      },
+      "model": "lesseroccultarts:item/soul_tag_linked"
+    }
+  ]
+}

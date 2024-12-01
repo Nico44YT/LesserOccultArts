@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "lesseroccultarts:silver_nugget"
+    }
+  },
+  "result": {
+    "item": "lesseroccultarts:silver_ingot",
+    "count": 1
+  }
+}

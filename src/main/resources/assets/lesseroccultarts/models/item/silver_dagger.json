@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "lesseroccultarts:item/silver_dagger"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "bloody": 1
+      },
+      "model": "lesseroccultarts:item/silver_dagger_bloody"
+    }
+  ]
+}

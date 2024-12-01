@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "lesseroccultarts",
+  "version": "${version}",
+  "name": "LesserOccultArts",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "accessWidener" : "lesseroccultarts.accesswidener",
+  "icon": "assets/lesseroccultarts/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "nazario.lesseroccultarts.client.LesserOccultArtsClient"
+    ],
+    "main": [
+      "nazario.lesseroccultarts.LesserOccultArtsMain"
+    ]
+  },
+  "mixins": [
+    "lesseroccultarts.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
