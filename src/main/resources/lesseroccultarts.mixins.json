@@ -4,12 +4,13 @@
   "package": "nazario.lesseroccultarts.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityDeathMixin",
     "PlayerDeathMixin",
     "ServerPlayerEntityMixin"
   ],
   "client": [
-    "client.ItemRendererMixin",
     "client.BipedEntityModelMixin",
+    "client.ItemRendererMixin",
     "client.PlayerEntityRendererMixin"
   ],
   "injectors": {

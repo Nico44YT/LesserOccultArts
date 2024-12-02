@@ -12,6 +12,8 @@
   "item.lesseroccultarts.deepslate_greatsword": "Deepslate Greatsword",
   "item.lesseroccultarts.damned_greatsword": "§4Greatsword Of The Damned",
 
+  "item.lesseroccultarts.demon_spawn_egg": "Demon Spawn Egg",
+
   "block.lesseroccultarts.silver_pressure_plate": "Silver Pressure Plate",
   "block.lesseroccultarts.silver_block": "Silver Block",
   "block.lesseroccultarts.silver_ore": "Silver Ore",
@@ -32,7 +34,8 @@
 
   "death.attack.lesseroccultarts.repurposed.player": "%1$s has their flesh repurposed",
   "death.attack.lesseroccultarts.damned.player": "%1$s got dragged to the depths of hell",
-  "death.attack.lesseroccultarts.decayed.player": "%1$s had decayed",
+  "death.attack.lesseroccultarts.decayed.player": "%1$s is decayed",
+  "death.attack.lesseroccultarts.decayed": "%1$s is decayed",
 
   "entity.lesseroccultarts.demon": "Demon"
 }

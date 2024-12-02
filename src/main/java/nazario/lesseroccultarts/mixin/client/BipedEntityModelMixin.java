@@ -1,5 +1,6 @@
 package nazario.lesseroccultarts.mixin.client;
 
+import nazario.lesseroccultarts.library.CustomHandSwingItem;
 import nazario.lesseroccultarts.registry.LoaItems;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.AnimalModel;
@@ -16,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({BipedEntityModel.class})
 public abstract class BipedEntityModelMixin<T extends LivingEntity> extends AnimalModel<T> {
+
     @Shadow
     @Final
     public ModelPart body;
@@ -32,28 +34,10 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     @Shadow
     protected abstract ModelPart getArm(Arm var1);
 
-    @Inject(
-            method = {"animateArms"},
-            at = {@At("TAIL")}
-    )
-    protected void amarite$twoHanding(T entity, float animationProgress, CallbackInfo ci) {
-        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(LoaItems.DAMNED_GREATSWORD)) {
-            Arm arm = this.getPreferredArm(entity).getOpposite();
-            ModelPart modelPart = this.getArm(arm);
-            double f = 1.0 - Math.pow((double)(1.0F - this.handSwingProgress), 3.0);
-            float h = MathHelper.sin(this.handSwingProgress * 3.1415927F) * -(this.head.pitch - 0.7F) * 0.75F;
-            modelPart.pitch -= MathHelper.sin((float)(f * Math.PI)) * 1.2F + h;
-            modelPart.yaw += this.body.yaw * 2.0F;
-            modelPart.roll += MathHelper.sin(this.handSwingProgress * 3.1415927F) * -0.4F;
-        }
-        if (!(this.handSwingProgress <= 0.0F) && entity.getMainHandStack().isOf(LoaItems.DEEEPSLATE_GREATSWORD)) {
-            Arm arm = this.getPreferredArm(entity).getOpposite();
-            ModelPart modelPart = this.getArm(arm);
-            double f = 1.0 - Math.pow((double)(1.0F - this.handSwingProgress), 3.0);
-            float h = MathHelper.sin(this.handSwingProgress * 3.1415927F) * -(this.head.pitch - 0.7F) * 0.75F;
-            modelPart.pitch -= MathHelper.sin((float)(f * Math.PI)) * 1.2F + h;
-            modelPart.yaw += this.body.yaw * 2.0F;
-            modelPart.roll += MathHelper.sin(this.handSwingProgress * 3.1415927F) * -0.4F;
-        }
+    @Inject(method = "animateArms", at = @At("TAIL"))
+    protected void loa$twoHanding(T entity, float animationProgress, CallbackInfo ci) {
+        entity.getHandItems().forEach(stack -> {
+            if(stack.getItem() instanceof CustomHandSwingItem customHandSwingItem) customHandSwingItem.swingHand(entity, (BipedEntityModel<? extends LivingEntity>)(Object)this, animationProgress, ci);
+        });
     }
 }

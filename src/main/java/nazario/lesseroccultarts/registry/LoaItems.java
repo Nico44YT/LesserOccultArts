@@ -16,7 +16,6 @@ public class LoaItems {
 
     public static final Item SILVER_DAGGER = registerItem("silver_dagger", new SilverDagger(LoaToolMaterials.SILVER, 3, -4+2.2f, new Item.Settings().group(LoaItems.LOA_ITEM_GROUP)));
 
-    public static final Item SPELL_BOOK = registerItem("spellbook", new SpellbookItem(new Item.Settings().group(LOA_ITEM_GROUP).maxCount(1)));
     public static final Item SILVER_INGOT = registerSimpleItem("silver_ingot");
     public static final Item SILVER_NUGGET = registerSimpleItem("silver_nugget");
     public static final Item RAW_SILVER = registerSimpleItem("raw_silver");
@@ -28,8 +27,10 @@ public class LoaItems {
     public static final Item SIGNED_CONTRACT = registerItem("signed_contract", new SignedContract(new Item.Settings().maxCount(1)));
     public static final Item MALICE_INK = registerItem("clump_of_malice", new MaliceInkItem(new FabricItemSettings().group(LoaItems.LOA_ITEM_GROUP)));
 
-    public static final Item DEEEPSLATE_GREATSWORD = registerItem("deepslate_greatsword", new DamnedGreatswordItem(DamnedGreatswordItem.DamnedGreatswordMaterial.INSTANCE,1 ,-2.7f, new FabricItemSettings().group(LoaItems.LOA_ITEM_GROUP)));
-    public static final Item DAMNED_GREATSWORD = registerItem("damned_greatsword", new DeepslateGreatswordItem(DeepslateGreatswordItem.DeepslateGreatswordMaterial.INSTANCE,1 ,-2.7f, new FabricItemSettings()));
+    public static final Item DEEEPSLATE_GREATSWORD = registerItem("deepslate_greatsword", new DeepslateGreatswordItem(DeepslateGreatswordItem.DeepslateGreatswordMaterial.INSTANCE,1 ,-2.7f, new FabricItemSettings().group(LoaItems.LOA_ITEM_GROUP)));
+    public static final Item DAMNED_GREATSWORD = registerItem("damned_greatsword", new DamnedGreatswordItem(1 ,-2.7f, new FabricItemSettings().group(LoaItems.LOA_ITEM_GROUP)));
+
+    public static final Item DEMON_SPAWN_EGG = registerItem("demon_spawn_egg", new SpawnEggItem(LoaEntities.DEMON, 0x280a18, 0xfa1a55, new Item.Settings().group(LoaItems.LOA_ITEM_GROUP)));
 
     public static void register() {
     }

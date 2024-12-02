@@ -20,7 +20,7 @@ public class LesserOccultArtsMain implements ModInitializer {
         LoaParticles.register();
 
         LoaEntities.register();
-        LoadEnchantments.register();
+        LoaEnchantments.register();
         LoaBlocks.register();
         LoaItems.register();
         GeckoLib.initialize();
