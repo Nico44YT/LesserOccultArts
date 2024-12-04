@@ -18,8 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(ItemRenderer.class)
-public abstract class ItemRendererMixin
-{
+public abstract class ItemRendererMixin {
     private static final ModelIdentifier DAMNED_GREATSWORD_HANDHELD;
     private static final ModelIdentifier DEEPSLATE_GREATSWORD_HANDHELD;
 
@@ -27,7 +26,7 @@ public abstract class ItemRendererMixin
 
     @Shadow public abstract BakedModel getModel(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed);
 
-    @ModifyVariable(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At("HEAD"), argsOnly = true)
+    @ModifyVariable(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At("HEAD"), argsOnly = true)
     public BakedModel onRenderItem(BakedModel value, ItemStack stack, ModelTransformation.Mode mode)
     {
         if(stack.isOf(LoaItems.DAMNED_GREATSWORD) && !mode.equals(ModelTransformation.Mode.GUI))

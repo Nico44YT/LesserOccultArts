@@ -2,13 +2,14 @@ package nazario.lesseroccultarts.common.item;
 
 import nazario.lesseroccultarts.common.entity.demonentity.DemonEntity;
 import nazario.lesseroccultarts.library.AdvancedItemMethods;
-import nazario.lesseroccultarts.library.CustomHandSwingItem;
 import nazario.lesseroccultarts.registry.LoaDamageSources;
 import nazario.lesseroccultarts.registry.LoaEnchantments;
 import nazario.lesseroccultarts.registry.LoaItems;
+import nazario.liby.interfaces.LibyItemRenderOverrider;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,7 +24,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-public class DamnedGreatswordItem extends SwordItem implements IOverrideMeleeDamageType, CustomHandSwingItem, AdvancedItemMethods {
+public class DamnedGreatswordItem extends SwordItem implements IOverrideMeleeDamageType, LibyItemRenderOverrider, AdvancedItemMethods {
     public DamnedGreatswordItem(int attackDamage, float attackSpeed, Settings settings) {
         super(DamnedGreatswordMaterial.INSTANCE, attackDamage, attackSpeed, settings);
     }
@@ -53,9 +54,9 @@ public class DamnedGreatswordItem extends SwordItem implements IOverrideMeleeDam
     }
 
     @Override
-    public <T extends LivingEntity> void swingHand(T entity, BipedEntityModel<? extends LivingEntity> model, float animationProgress, CallbackInfo ci) {
-        if(animationProgress > 0f) return;
-        Arm arm = ((LivingEntity)entity).preferredHand == Hand.MAIN_HAND ? entity.getMainArm() : entity.getMainArm().getOpposite();
+    public void animateArmSwing(Entity entity, BipedEntityModel<? extends LivingEntity> model, float animationProgress, CallbackInfo ci) {
+        if(animationProgress < 0f) return;
+        Arm arm = ((LivingEntity) entity).getMainArm().getOpposite();
         ModelPart modelPart = model.getArm(arm);
         double f = 1.0 - Math.pow((double)(1.0F - model.handSwingProgress), 3.0);
         float h = MathHelper.sin(model.handSwingProgress * 3.1415927F) * -(model.head.pitch - 0.7F) * 0.75F;

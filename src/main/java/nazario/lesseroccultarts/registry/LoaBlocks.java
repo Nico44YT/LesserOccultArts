@@ -3,12 +3,14 @@ package nazario.lesseroccultarts.registry;
 import nazario.lesseroccultarts.LesserOccultArtsMain;
 import nazario.lesseroccultarts.common.block.MaliceInkCauldronBlock;
 import nazario.lesseroccultarts.common.block.SilverPressurePlate;
+import nazario.liby.registry.auto.LibyAutoRegister;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
 
+@LibyAutoRegister
 public class LoaBlocks {
     public static final Block SILVER_PRESSURE_PLATE = registerBlock("silver_pressure_plate", new SilverPressurePlate(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).noCollision()), new Item.Settings().group(LoaItems.LOA_ITEM_GROUP));
     public static final Block SILVER_ORE = registerBlock("silver_ore", new OreBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE)), new Item.Settings().group(LoaItems.LOA_ITEM_GROUP));

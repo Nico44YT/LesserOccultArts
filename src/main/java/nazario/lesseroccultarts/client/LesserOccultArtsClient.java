@@ -7,6 +7,9 @@ import nazario.lesseroccultarts.registry.LoaEntities;
 import nazario.lesseroccultarts.registry.LoaItems;
 import nazario.lesseroccultarts.registry.LoaPackets;
 import nazario.lesseroccultarts.registry.LoaParticles;
+import nazario.liby.registry.auto.LibyAutoRegister;
+import nazario.liby.registry.auto.LibyEntrypoints;
+import nazario.liby.registry.auto.LibyRegistryLoader;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -25,7 +28,7 @@ public class LesserOccultArtsClient implements ClientModInitializer {
     public void onInitializeClient() {
         registerModelPredicateProviders();
 
-        LoaPackets.registerS2CPackets();
+        LibyRegistryLoader.load("nazario.lesseroccultarts.registry", LibyEntrypoints.CLIENT);
 
         EntityRendererRegistry.register(LoaEntities.DEMON, DemonEntityRenderer::new);
 

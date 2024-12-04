@@ -1,12 +1,13 @@
 package nazario.lesseroccultarts.common.item;
 
-import nazario.lesseroccultarts.library.CustomHandSwingItem;
 import nazario.lesseroccultarts.registry.LoaBlocks;
 import nazario.lesseroccultarts.registry.LoaItems;
+import nazario.liby.interfaces.LibyItemRenderOverrider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-public class DeepslateGreatswordItem extends SwordItem implements CustomHandSwingItem {
+public class DeepslateGreatswordItem extends SwordItem implements LibyItemRenderOverrider {
     public DeepslateGreatswordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
@@ -50,9 +51,9 @@ public class DeepslateGreatswordItem extends SwordItem implements CustomHandSwin
     }
 
     @Override
-    public <T extends LivingEntity> void swingHand(T entity, BipedEntityModel<? extends LivingEntity> model, float animationProgress, CallbackInfo ci) {
-        if(animationProgress > 0f) return;
-        Arm arm = ((LivingEntity)entity).preferredHand == Hand.MAIN_HAND ? entity.getMainArm() : entity.getMainArm().getOpposite();
+    public void animateArmSwing(Entity entity, BipedEntityModel<? extends LivingEntity> model, float animationProgress, CallbackInfo ci) {
+        if(animationProgress < 0f) return;
+        Arm arm = ((LivingEntity) entity).getMainArm().getOpposite();
         ModelPart modelPart = model.getArm(arm);
         double f = 1.0 - Math.pow((double)(1.0F - model.handSwingProgress), 3.0);
         float h = MathHelper.sin(model.handSwingProgress * 3.1415927F) * -(model.head.pitch - 0.7F) * 0.75F;
@@ -60,6 +61,7 @@ public class DeepslateGreatswordItem extends SwordItem implements CustomHandSwin
         modelPart.yaw += model.body.yaw * 2.0F;
         modelPart.roll += MathHelper.sin(model.handSwingProgress * 3.1415927F) * -0.4F;
     }
+
 
     public static class DeepslateGreatswordMaterial implements ToolMaterial {
         public static final DeepslateGreatswordMaterial INSTANCE = new DeepslateGreatswordMaterial();

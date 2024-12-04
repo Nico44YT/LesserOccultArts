@@ -2,11 +2,13 @@ package nazario.lesseroccultarts.registry;
 
 import nazario.lesseroccultarts.LesserOccultArtsMain;
 import nazario.lesseroccultarts.common.entity.demonentity.DemonEntity;
+import nazario.liby.registry.auto.LibyAutoRegister;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.registry.Registry;
 
+@LibyAutoRegister
 public class LoaEntities {
     public static final EntityType<DemonEntity> DEMON = Registry.register(Registry.ENTITY_TYPE,
             LesserOccultArtsMain.id("demon"),

@@ -52,9 +52,9 @@ public class DemonEntity extends TameableEntity implements IAnimatable, Angerabl
 
     public static DefaultAttributeContainer.Builder createDefaultAttributes() {
         return HostileEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 84.0);
     }
 
@@ -100,13 +100,22 @@ public class DemonEntity extends TameableEntity implements IAnimatable, Angerabl
     }
 
     @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+    }
+
+    @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         nbt.putInt("spawn_ticks", spawnTicks);
+        System.out.println("Saving spawnTicks: " + spawnTicks);
+        super.writeCustomDataToNbt(nbt);
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         this.spawnTicks = nbt.getInt("spawn_ticks");
+        System.out.println("Loading spawnTicks: " + spawnTicks);
+        super.readCustomDataFromNbt(nbt);
     }
 
     @Override
